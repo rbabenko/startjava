@@ -1,6 +1,5 @@
 public class VariablesTheme {
 	public static void main(String[] args) {
-
 		System.out.println("\n1. Создание переменных и вывод их значений на консоль");
 		byte countHdd = 1;
 		short countRam = 2;
