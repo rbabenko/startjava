@@ -96,17 +96,17 @@ public class CyclesTheme {
         }
         System.out.println("треугольник:");
         symbol = '$';
-        row = 1;
-        int column = 0;
-        j = 0;
+        row = 0;
+        int columnLimit = 0;
         do {
-            column = (row <= 3) ? 1 : column + (j++ - 1);
+            j = 0;
+            columnLimit = row < 3 ? ++columnLimit : --columnLimit;
             do {
                 System.out.print(symbol);
-                ++column;
-            } while (column <= row);
+                j++;
+            } while (j < columnLimit);
             System.out.println();
             ++row;
-        } while (row <= 5);
+        } while (row < 5);
     }
  }
