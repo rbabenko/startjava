@@ -108,5 +108,68 @@ public class CyclesTheme {
             System.out.println();
             ++row;
         } while (row < 5);
+
+        System.out.println("\n7. Отображение ASCII-символов");
+        System.out.printf("%6s %6s\n", "Dec", "Char");
+        //символы, идущие до цифр
+        for (int i = 0; i < 48; i++) {
+            if (i % 2 != 0) {
+                System.out.printf("%6d %6s\n", i, (char) i);
+            }
+        }
+        //маленькие английские коды
+        for (int i = 97; i < 123; i++) {
+            if (i % 2 == 0) {
+                System.out.printf("%6d %6s\n", i, (char) i);
+            }
+        }
+        
+        System.out.println("\n8. Проверка, является ли число палиндромом");
+        number = 1234321;
+        int tempNumber = number;
+        int reverseNumber = 0;
+
+        while (tempNumber > 0) {
+            int value = tempNumber % 10;
+            reverseNumber = reverseNumber * 10 + value;
+            tempNumber /= 10;
+        }
+
+        if (reverseNumber == number) {
+            System.out.printf("число %d является палиндромом\n", number);
+        }
+
+        System.out.println("\n9. Определение, является ли число счастливым");
+        number = 123042;
+        tempNumber = number;
+        String partNumber = "";
+        int partSum = 0;
+        int counter = 1;
+        int previousPartSum = 0;
+        boolean isLuckyNumber = false;
+
+        do {
+            int value = tempNumber % 10;
+            partSum += value;
+            partNumber = value + partNumber;
+
+            if (counter > 0 && counter % 3 == 0) {
+                System.out.printf("Сумма цифр %s = %d\n", partNumber, partSum);
+                isLuckyNumber = partSum == previousPartSum;
+                previousPartSum = partSum;
+                partNumber = "";
+                partSum = 0;
+            }
+            tempNumber /= 10;
+            counter++;
+        } while (tempNumber > 0);
+        if (isLuckyNumber)  {
+            System.out.printf("Число %6d является счастливым", number);
+        } else {
+            System.out.printf("Число %6d не является счастливым", number);
+        }
+
+        System.out.println("\n10. Вывод таблицы умножения Пифагора");
+        System.out.println("ТАБЛИЦА ПИФАГОРА");
     }
  }
