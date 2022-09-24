@@ -56,6 +56,7 @@ public class CyclesTheme {
                 j++;
             }
         }
+        System.out.println();
 
         System.out.println("\n5. Проверка количества единиц на четность");
         number = 3141591;
@@ -136,7 +137,7 @@ public class CyclesTheme {
         }
 
         if (reverseNumber == number) {
-            System.out.printf("число %d является палиндромом\n", number);
+            System.out.printf("Число %d является палиндромом\n", number);
         }
 
         System.out.println("\n9. Определение, является ли число счастливым");
@@ -164,12 +165,25 @@ public class CyclesTheme {
             counter++;
         } while (tempNumber > 0);
         if (isLuckyNumber)  {
-            System.out.printf("Число %6d является счастливым", number);
+            System.out.printf("Число %6d является счастливым\n", number);
         } else {
-            System.out.printf("Число %6d не является счастливым", number);
+            System.out.printf("Число %6d не является счастливым\n", number);
         }
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
-        System.out.println("ТАБЛИЦА ПИФАГОРА");
+        System.out.printf("%10s ","ТАБЛИЦА");
+        System.out.printf("%11s","ПИФАГОРА");
+        for (int i = 1; i < 10; i++) {
+            System.out.printf("\n%-2s|", i != 1 ? i : "");
+            for (int k = 2; k < 10; k++) {
+                System.out.printf("%3d", i*k);
+            }
+            if (i == 1) {
+                System.out.println();
+                for (int k = 1; k < 10; k++) {
+                    System.out.printf("%3s", "---");
+                }
+            }
+        }
     }
  }
