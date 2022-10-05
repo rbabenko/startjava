@@ -64,6 +64,5 @@ public class Calculator {
 
     private static void printResult(int a, int b, String operator, int result) {
         System.out.println(a + " " + operator + " " + b + " = " + result);
-    }
-    
+    }   
 }
