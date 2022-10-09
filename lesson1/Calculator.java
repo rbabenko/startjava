@@ -59,7 +59,7 @@ public class Calculator {
     }
 
     private static void numberErrorDescription(String inputStr) {
-        System.out.printf("Ошибка ввода данных: %s. Введенные операнды должны соответствовать целам положительным числам\n", inputStr);
+        System.out.printf("Ошибка ввода данных: %s. Введенные операнды должны соответствовать целым положительным числам\n", inputStr);
     }
 
     private static void printResult(int a, int b, String operator, int result) {
