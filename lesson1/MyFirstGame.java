@@ -9,7 +9,7 @@ public class MyFirstGame {
         System.out.println("Игра \"Угадай число\"");
         Scanner scanner = new Scanner(System.in);
 
-        do {
+        while (scanner.hasNextInt()) {
             inputNumber = scanner.nextInt();
             if (!(inputNumber > lower && inputNumber <= upper)) {
                 System.out.printf("Введенное число %d должно находиться в полуинтервале (%d, %d]\n", inputNumber, lower, upper);
@@ -27,8 +27,7 @@ public class MyFirstGame {
             if (inputNumber > hiddenNumber) {
                 System.out.printf("Число %d больше того, что загадал компьютер\n", inputNumber);
             }
-        } while (scanner.hasNextInt());
-
+        }
         scanner.close();
     }
 }
