@@ -19,10 +19,10 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("высокий");
         }
-        char firstLetterFirstName = "Рома".charAt(0);
-        if (firstLetterFirstName == 'M') {
+        char firstLetterName = "Рома".charAt(0);
+        if (firstLetterName == 'M') {
             System.out.println("Ваше имя прекрасно");
-        } else if (firstLetterFirstName == 'I') {
+        } else if (firstLetterName == 'I') {
             System.out.println("Ваше имя чуть менее прекрасно");
         } else {
             System.out.println("Ваше имя обычное");
@@ -40,14 +40,14 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n3. Работа с числом");
-        int variable = 16;
-        if (variable != 0) {
-            if (variable % 2 == 0) {
+        int num = 16;
+        if (num != 0) {
+            if (num % 2 == 0) {
                 System.out.println("Число является четным");    
             } else {
                 System.out.println("Число является нечетным");
             }
-            if (variable > 0) {
+            if (num > 0) {
                 System.out.println("Число является положительным");
             } else {
                 System.out.println("Число является отрицательным");
@@ -57,39 +57,33 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int var1 = 100;
-        int var2 = 500;
-        System.out.println("исходные числа: " + var1 + ", " + var2);
-        int digitNumber = 0;
-        if (var1 % 10 == var2 % 10) {
-            System.out.println("Одинаковые цифры: " + var1 % 10);
-            System.out.println("Номер разряда: " + digitNumber);
+        int num1 = 100;
+        int num2 = 500;
+        System.out.println("исходные числа: " + num1 + ", " + num2);
+        if (num1 % 10 == num2 % 10) {
+            System.out.println("Одинаковые цифры: " + num1 % 10);
+            System.out.println("Номер разряда: 1");
         }
-        var1 /= 10;
-        var2 /= 10;
-        digitNumber++;
-        if (var1 % 10 == var2 % 10) {
-            System.out.println("Одинаковые цифры: " + var1 % 10);
-            System.out.println("Номер разряда: " + digitNumber);
+        num1 /= 10;
+        num2 /= 10;
+        if (num1 % 10 == num2 % 10) {
+            System.out.println("Одинаковые цифры: " + num1 % 10);
+            System.out.println("Номер разряда: 2");
         }
-        var1 /= 10;
-        var2 /= 10;
-        digitNumber++;
-        if (var1 % 10 == var2 % 10) {
-            System.out.println("Одинаковые цифры: " + var1 % 10);
-            System.out.println("Номер разряда: " + digitNumber);
+        num1 /= 10;
+        num2 /= 10;
+        if (num1 % 10 == num2 % 10) {
+            System.out.println("Одинаковые цифры: " + num1 % 10);
+            System.out.println("Номер разряда: 3");
         }
-        var1 /= 10;
-        var2 /= 10;
-        digitNumber++;
 
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
-        char character = '\u0057';
-        if (character >= '\u0061' && character <= '\u007A') {
+        char uncknownChar = '\u0057';
+        if (uncknownChar >= 'a' && uncknownChar <= 'z') {
             System.out.println("маленькая буква");
-        } else if (character >= '\u0041' && character <= '\u005A') {
+        } else if (uncknownChar >= 'A' && uncknownChar <= 'Z') {
             System.out.println("большая буква");
-        } else if (character >= '\u0030' && character <= '\u0039') {
+        } else if (uncknownChar >= '0' && uncknownChar <= '9') {
             System.out.println("число");
         } else {
             System.out.println("не буква и не число");
@@ -114,9 +108,7 @@ public class IfElseStatementTheme {
         int programmingPercent = 91;
         int historyScore = 2;
         int programmingScore = 2;
-        if (historyPercent <= 60) {
-            historyScore = 2;
-        } else if (historyPercent > 60 && historyPercent <= 73) {
+        if (historyPercent > 60 && historyPercent <= 73) {
             historyScore = 3;
         } else if (historyPercent > 73 && historyPercent <= 91) {
             historyScore = 4;
@@ -124,9 +116,7 @@ public class IfElseStatementTheme {
             historyScore = 5;
         }
         System.out.println("история - " + historyScore);
-        if (programmingPercent <= 60) {
-            programmingScore = 2;
-        } else if (programmingPercent > 60 && programmingPercent <= 73) {
+        if (programmingPercent > 60 && programmingPercent <= 73) {
             programmingScore = 3;
         } else if (programmingPercent > 73 && programmingPercent <= 91) {
             programmingScore = 4;
@@ -135,7 +125,7 @@ public class IfElseStatementTheme {
         }
         System.out.println("программирование - " + programmingScore);
         System.out.println("средний балл оценок по предметам - " + (historyScore + programmingScore) / 2);
-        System.out.println("средний % по предматем - " + (historyPercent + programmingPercent) / 2);
+        System.out.println("средний % по предметам - " + (historyPercent + programmingPercent) / 2);
 
         System.out.println("\n8. Расчет прибыли");
         int rentCost = 5_000;

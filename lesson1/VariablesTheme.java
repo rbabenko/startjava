@@ -21,9 +21,9 @@ public class VariablesTheme {
 		System.out.println("\n2. Расчет стоимости товара со скидкой");
 		int sum = 100 + 200;
 		double sumDiscount = sum * 0.11;
-		double finalSum = sum - sumDiscount;
+		double discountPrice = sum - sumDiscount;
 		System.out.println("Сумма скидки: " + sumDiscount);
-		System.out.println("Общая стоимость товаров со скидкой: " + finalSum);
+		System.out.println("Общая стоимость товаров со скидкой: " + discountPrice);
 
 		System.out.println("\n3. Вывод на консоль слова JAVA");
 		System.out.println("   J    a  v     v  a   ");
@@ -65,7 +65,7 @@ public class VariablesTheme {
 		System.out.println("исходные значения переменных: " + num1 + ", " + num2);
 		num1 += num2;
 		num2 = num1 - num2;
-		num1 = num1 - num2;
+		num1 -= num2;
 		System.out.println("новые значения переменных: " + num1 + ", " + num2);
 		System.out.println("с помощью побитовой операции ^:");
 		System.out.println("исходные значения переменных: " + num1 + ", " + num2);
@@ -111,9 +111,9 @@ public class VariablesTheme {
 		number = 345;
 		int hundreds = (number / 100) % 100;
 		int dozens = (number / 10) % 10;
-		int units = number % 10;
-		int mult = hundreds * dozens * units;
-		sum = hundreds + dozens + units;
+		int ones = number % 10;
+		int mult = hundreds * dozens * ones;
+		sum = hundreds + dozens + ones;
 		System.out.println("сумма цифр числа N = " + sum);
 		System.out.println("произведение цифр числа N = " + mult);
 
