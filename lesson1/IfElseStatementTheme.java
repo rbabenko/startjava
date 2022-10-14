@@ -29,12 +29,12 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. Поиск max и min числа");
-        int a = 10;
-        int b = 5;
-        if (a > b) {
-            System.out.println("max = " + a + ", min = " + b);
-        } else if (b > a) {
-            System.out.println("max = " + b + ", min = " + a);
+        int num1 = 10;
+        int num2 = 5;
+        if (num1 > num2) {
+            System.out.println("max = " + num1 + ", min = " + num2);
+        } else if (num2 > num1) {
+            System.out.println("max = " + num2 + ", min = " + num1);
         } else {
             System.out.println("a равно b");
         }
@@ -57,8 +57,8 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int num1 = 100;
-        int num2 = 500;
+        num1 = 100;
+        num2 = 500;
         System.out.println("исходные числа: " + num1 + ", " + num2);
         if (num1 % 10 == num2 % 10) {
             System.out.println("Одинаковые цифры: " + num1 % 10);
