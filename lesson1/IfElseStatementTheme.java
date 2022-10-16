@@ -91,10 +91,8 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Определение суммы вклада и начисленных банком %");
         int depositAmount = 300_000; 
-        int percent = 0;
-        if (depositAmount < 100_000) {
-            percent = 5;
-        } else if (depositAmount >= 100_000 && depositAmount <= 300_000) {
+        int percent = 5;
+        if (depositAmount >= 100_000 && depositAmount <= 300_000) {
             percent = 7;
         } else if (depositAmount > 300_000) {
             percent = 10;
