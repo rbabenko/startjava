@@ -19,21 +19,23 @@ public class CyclesTheme {
         int b = 5;
         int c = -1;
         int max = c;
-        int min = c;
-        if (a >= b && a >= c) {
+        int min = a;
+
+        if (a > max) {
             max = a;
-        } else if (b >= a && b >= c) {
+        } else if (b > max) {
             max = b;
         }
-        if (a <= b && a <= c) {
-            min = a;
-        } else if (b <= a && b <= c) {
+
+        if (b < min) {
             min = b;
+        } else if (c < min) {
+            min = c;
         }
+
         for (int i = max - 1; i > min; i--) {
             System.out.printf("%d ", i);
         }
-        System.out.println();
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
         int number = 1234;
@@ -52,9 +54,8 @@ public class CyclesTheme {
         for (int i = 1; i < 24; i += 2, count++) {
             if (count != 0 && count % 5 == 0) {
                 count = 0;
-                System.out.println();
             }
-            System.out.printf("%2d ", i);
+            System.out.printf("\n%2d ", i);
         }
         if (count != 0) {
             while (count < 5) {
@@ -62,7 +63,6 @@ public class CyclesTheme {
                 count++;
             }
         }
-        System.out.println();
 
         System.out.println("\n5. Проверка количества единиц на четность");
         number = 3141591;
@@ -77,15 +77,14 @@ public class CyclesTheme {
         System.out.printf("Число %d содержит %s количество единиц\n", copyNumber, countOnes % 2 == 0 ? "четное" : "нечетное");
 
         System.out.println("\n6. Отображение фигур в консоли");
-        System.out.println("прямоугольник:");
+        System.out.println("прямоугольник:\n");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print('*');
             }
             System.out.println();
         }
-        System.out.println();
-        System.out.println("прямоугольный треугольник:");
+        System.out.println("\nпрямоугольный треугольник:\n");
         int row = 5;
         while (row > 0) {
             int column = row;
@@ -96,8 +95,7 @@ public class CyclesTheme {
             System.out.println();
             --row;
         }
-        System.out.println();
-        System.out.println("треугольник:");
+        System.out.println("\nтреугольник:\n");
         row = 0;
         int columnLimit = 0;
         do {
@@ -132,8 +130,7 @@ public class CyclesTheme {
         int reverseNumber = 0;
 
         while (copyNumber > 0) {
-            int digit = copyNumber % 10;
-            reverseNumber = reverseNumber * 10 + digit;
+            reverseNumber = reverseNumber * 10 + copyNumber % 10;
             copyNumber /= 10;
         }
 
@@ -144,40 +141,36 @@ public class CyclesTheme {
         System.out.println("\n9. Определение, является ли число счастливым");
         number = 123042;
         copyNumber = number;
-        String partNumber = "";
         int partSum = 0;
-        counter = 1;
         int previousPartSum = 0;
-        boolean isLuckyNumber = false;
+        int partNumber = 0;
+        int mul = 1;
+        counter = 1;
 
         do {
             int digit = copyNumber % 10;
             partSum += digit;
-            partNumber = digit + partNumber;
+            partNumber = mul * digit + partNumber;
+            mul *= 10;
 
-            if (counter > 0 && counter % 3 == 0) {
-                System.out.printf("Сумма цифр %s = %d\n", partNumber, partSum);
-                isLuckyNumber = partSum == previousPartSum;
+            if (counter % 3 == 0) {
+                System.out.printf("Сумма цифр %03d = %d\n", partNumber, partSum);
                 previousPartSum = partSum;
-                partNumber = "";
+                partNumber = 0;
                 partSum = 0;
+                mul = 1;
             }
             copyNumber /= 10;
-            counter++;
+            ++counter;
         } while (copyNumber > 0);
-        if (isLuckyNumber)  {
-            System.out.printf("Число %6d является счастливым\n", number);
-        } else {
-            System.out.printf("Число %6d не является счастливым\n", number);
-        }
+        System.out.printf("Число %6d является %s\n", number, partSum == previousPartSum ? "счастливым" : "несчастливым");
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
-        System.out.printf("%10s ","ТАБЛИЦА");
-        System.out.printf("%11s","ПИФАГОРА");
+        System.out.printf("%10s %11s","ТАБЛИЦА", "ПИФАГОРА");
         for (int i = 1; i < 10; i++) {
             System.out.printf("\n%-2s|", i != 1 ? i : "");
             for (int j = 2; j < 10; j++) {
-                System.out.printf("%3d", i*j);
+                System.out.printf("%3d", i * j);
             }
             if (i == 1) {
                 System.out.println();
@@ -186,5 +179,6 @@ public class CyclesTheme {
                 }
             }
         }
+        System.out.println();
     }
  }
