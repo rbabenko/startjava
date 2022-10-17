@@ -23,13 +23,15 @@ public class CyclesTheme {
 
         if (a > max) {
             max = a;
-        } else if (b > max) {
+        } 
+        if (b > max) {
             max = b;
         }
 
         if (b < min) {
             min = b;
-        } else if (c < min) {
+        }
+        if (c < min) {
             min = c;
         }
 
@@ -37,7 +39,7 @@ public class CyclesTheme {
             System.out.printf("%d ", i);
         }
 
-        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int number = 1234;
         int sum = 0;
         System.out.print("Исходное число в обратном порядке: ");
@@ -54,8 +56,9 @@ public class CyclesTheme {
         for (int i = 1; i < 24; i += 2, count++) {
             if (count != 0 && count % 5 == 0) {
                 count = 0;
+                System.out.println();
             }
-            System.out.printf("\n%2d ", i);
+            System.out.printf("%2d ", i);
         }
         if (count != 0) {
             while (count < 5) {
@@ -64,7 +67,7 @@ public class CyclesTheme {
             }
         }
 
-        System.out.println("\n5. Проверка количества единиц на четность");
+        System.out.println("\n\n5. Проверка количества единиц на четность");
         number = 3141591;
         int copyNumber = number;
         int countOnes = 0;
@@ -74,17 +77,19 @@ public class CyclesTheme {
             }
             number /= 10;
         }
-        System.out.printf("Число %d содержит %s количество единиц\n", copyNumber, countOnes % 2 == 0 ? "четное" : "нечетное");
+        System.out.printf("Число %d содержит %s количество единиц\n", copyNumber,
+         countOnes % 2 == 0 ? "четное" : "нечетное");
 
         System.out.println("\n6. Отображение фигур в консоли");
-        System.out.println("прямоугольник:\n");
+        System.out.println("прямоугольник:");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print('*');
             }
             System.out.println();
         }
-        System.out.println("\nпрямоугольный треугольник:\n");
+
+        System.out.println("\nпрямоугольный треугольник:");
         int row = 5;
         while (row > 0) {
             int column = row;
@@ -95,7 +100,8 @@ public class CyclesTheme {
             System.out.println();
             --row;
         }
-        System.out.println("\nтреугольник:\n");
+
+        System.out.println("\nтреугольник:");
         row = 0;
         int columnLimit = 0;
         do {
@@ -114,13 +120,13 @@ public class CyclesTheme {
         //символы, идущие до цифр
         for (int i = 0; i < 48; i++) {
             if (i % 2 != 0) {
-                System.out.printf("%6d %6s\n", i, (char) i);
+                System.out.printf("%6d %6c\n", i, i);
             }
         }
         //маленькие английские коды
         for (int i = 97; i < 123; i++) {
             if (i % 2 == 0) {
-                System.out.printf("%6d %6s\n", i, (char) i);
+                System.out.printf("%6d %6c\n", i, (char) i);
             }
         }
         
@@ -140,30 +146,27 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
         number = 123042;
-        copyNumber = number;
-        int partSum = 0;
-        int previousPartSum = 0;
-        int partNumber = 0;
-        int mul = 1;
-        counter = 1;
+        int firstPartNumber = number / 1000;
+        int secondPartNumber = number % 1000;
+        int firstPartSum = 0;
+        int secondPartSum = 0;
 
-        do {
-            int digit = copyNumber % 10;
-            partSum += digit;
-            partNumber = mul * digit + partNumber;
-            mul *= 10;
-
-            if (counter % 3 == 0) {
-                System.out.printf("Сумма цифр %03d = %d\n", partNumber, partSum);
-                previousPartSum = partSum;
-                partNumber = 0;
-                partSum = 0;
-                mul = 1;
-            }
+        copyNumber = firstPartNumber;
+        while (copyNumber > 0) {
+            firstPartSum += copyNumber % 10;
             copyNumber /= 10;
-            ++counter;
-        } while (copyNumber > 0);
-        System.out.printf("Число %6d является %s\n", number, partSum == previousPartSum ? "счастливым" : "несчастливым");
+        }
+        System.out.printf("Сумма цифр %03d = %d\n", firstPartNumber, firstPartSum);
+
+        copyNumber = secondPartNumber;
+        while (copyNumber > 0) {
+            secondPartSum += copyNumber % 10;
+            copyNumber /= 10;
+        }
+        System.out.printf("Сумма цифр %03d = %d\n", secondPartNumber, secondPartSum);
+
+        System.out.printf("Число %6d является %s\n", number,
+         firstPartSum == secondPartSum ? "счастливым" : "несчастливым");
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.printf("%10s %11s","ТАБЛИЦА", "ПИФАГОРА");
