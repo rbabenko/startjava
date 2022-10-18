@@ -78,7 +78,7 @@ public class CyclesTheme {
             number /= 10;
         }
         System.out.printf("Число %d содержит %s количество единиц\n", copyNumber,
-         countOnes % 2 == 0 ? "четное" : "нечетное");
+                countOnes % 2 == 0 ? "четное" : "нечетное");
 
         System.out.println("\n6. Отображение фигур в консоли");
         System.out.println("прямоугольник:");
@@ -166,7 +166,7 @@ public class CyclesTheme {
         System.out.printf("Сумма цифр %03d = %d\n", secondPartNumber, secondPartSum);
 
         System.out.printf("Число %6d является %s\n", number,
-         firstPartSum == secondPartSum ? "счастливым" : "несчастливым");
+                firstPartSum == secondPartSum ? "счастливым" : "несчастливым");
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.printf("%10s %11s","ТАБЛИЦА", "ПИФАГОРА");

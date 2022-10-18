@@ -1,33 +1,32 @@
-import java.util.Scanner;
-
 public class MyFirstGame {
     public static void main(String[] args) {
-        final int lower = 0;
-        final int upper = 100;
-        int inputNumber = -1;
-        int hiddenNumber = lower + (int) (Math.random() * (upper - lower));
+        final int startRange = 0;
+        final int endRange = 100;
+        int copyStartRange = startRange;
+        int copyEndRange = endRange;
+        int inputNumber = 58;
+        int hiddenNumber = 1 + (int) (Math.random() * 100);
         System.out.println("Игра \"Угадай число\"");
-        Scanner scanner = new Scanner(System.in);
 
-        while (scanner.hasNextInt()) {
-            inputNumber = scanner.nextInt();
-            if (!(inputNumber > lower && inputNumber <= upper)) {
-                System.out.printf("Введенное число %d должно находиться в полуинтервале (%d, %d]\n", inputNumber, lower, upper);
+        while (inputNumber != hiddenNumber) {
+            if (!(inputNumber > startRange && inputNumber <= endRange)) {
+                System.out.printf("Введенное число %d должно находиться в полуинтервале (%d, %d]\n",
+                        inputNumber, startRange, endRange);
                 continue;
-            }
-
-            if (hiddenNumber == inputNumber) {
-                System.out.println("Вы победили!");
-                break;
             }
 
             if (inputNumber < hiddenNumber) {
                 System.out.printf("Число %d меньше того, что загадал компьютер\n", inputNumber);
-            }
-            if (inputNumber > hiddenNumber) {
+                copyStartRange = inputNumber;
+                inputNumber = (copyEndRange - inputNumber) / 2 + inputNumber;
+
+            } else if (inputNumber > hiddenNumber) {
                 System.out.printf("Число %d больше того, что загадал компьютер\n", inputNumber);
+                copyEndRange = inputNumber;
+                inputNumber = (inputNumber - copyStartRange) / 2;
             }
         }
-        scanner.close();
+
+        System.out.printf("Вы победили!. Загаданное число: %d\nw", inputNumber);
     }
 }
