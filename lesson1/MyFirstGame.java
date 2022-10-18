@@ -6,15 +6,9 @@ public class MyFirstGame {
         int copyEndRange = endRange;
         int inputNumber = 58;
         int hiddenNumber = 1 + (int) (Math.random() * 100);
-        System.out.println("Игра \"Угадай число\"");
+        System.out.println("Игра \"Угадай число\"\n");
 
         while (inputNumber != hiddenNumber) {
-            if (!(inputNumber > startRange && inputNumber <= endRange)) {
-                System.out.printf("Введенное число %d должно находиться в полуинтервале (%d, %d]\n",
-                        inputNumber, startRange, endRange);
-                break;
-            }
-
             if (inputNumber < hiddenNumber) {
                 System.out.printf("Число %d меньше того, что загадал компьютер\n", inputNumber);
                 copyStartRange = inputNumber;
