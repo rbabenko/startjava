@@ -12,7 +12,7 @@ public class MyFirstGame {
             if (!(inputNumber > startRange && inputNumber <= endRange)) {
                 System.out.printf("Введенное число %d должно находиться в полуинтервале (%d, %d]\n",
                         inputNumber, startRange, endRange);
-                continue;
+                break;
             }
 
             if (inputNumber < hiddenNumber) {
