@@ -13,14 +13,12 @@ public class MyFirstGame {
                 System.out.printf("Число %d меньше того, что загадал компьютер\n", inputNumber);
                 copyStartRange = inputNumber;
                 inputNumber = (copyEndRange - inputNumber) / 2 + inputNumber;
-
             } else if (inputNumber > hiddenNumber) {
                 System.out.printf("Число %d больше того, что загадал компьютер\n", inputNumber);
                 copyEndRange = inputNumber;
                 inputNumber = (inputNumber - copyStartRange) / 2;
             }
         }
-
         System.out.printf("Вы победили!. Загаданное число: %d\nw", inputNumber);
     }
 }
