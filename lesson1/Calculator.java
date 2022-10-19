@@ -1,36 +1,34 @@
 public class Calculator {
     public static void main(String[] args) {
-        int operand1 = 2;
-        int operand2 = 16;
-        char operator = '^';
+        int a = 2;
+        int b = 16;
+        char sign = '^';
 
         int result = 0;
 
-        if (!(operand1 > 0 && operand2 > 0)) {
+        if (!(a > 0 && b > 0)) {
             System.out.println("Операнды должны являться целыми положительными числами");
             return;
         }
 
-        if (operator == '+') {
-            result = operand1 + operand2;
-        } else if (operator == '-') {
-            result = operand1 - operand2;
-        } else if (operator == '*') {
-            result = operand1 * operand2;
-        } else if (operator == '/') {
-            result = operand1 / operand2;
-        } else if (operator == '^') {
+        if (sign == '+') {
+            result = a + b;
+        } else if (sign == '-') {
+            result = a - b;
+        } else if (sign == '*') {
+            result = a * b;
+        } else if (sign == '/') {
+            result = a / b;
+        } else if (sign == '^') {
             result = 1;
-            int degree = operand2;
-            while (degree > 0) {
-                result *= operand1;
-                --degree;
-            }
+            for (int i = 0; i < b; i++) {
+                result *= a;
+            } 
         } else {
-            System.out.printf("Введена неподдерживаемая арифметическая операция: %c\n", operator);
+            System.out.printf("Введена неподдерживаемая арифметическая операция: %c\n", sign);
             return;
         }
 
-        System.out.println(operand1 + " " + operator + " " + operand2 + " = " + result);
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }   
 }
