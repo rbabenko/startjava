@@ -17,6 +17,6 @@ public class MyFirstGame {
                 inputNumber = (inputNumber - startRange) / 2;
             }
         }
-        System.out.printf("Вы победили!. Загаданное число: %d\nw", inputNumber);
+        System.out.printf("Вы победили! Загаданное число: %d\nw", inputNumber);
     }
 }

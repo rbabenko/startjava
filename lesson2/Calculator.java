@@ -12,7 +12,7 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public void execute() {
+    public void calculate() {
         switch (sign) {
             case '+':
                 result = a + b;

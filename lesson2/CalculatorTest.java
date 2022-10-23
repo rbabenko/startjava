@@ -7,11 +7,12 @@ public class CalculatorTest {
         Calculator calculator;
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        String nextIteration;
+
+        do {
             int a;
             int b;
             char sign;
-            String nextExecution;
 
             System.out.print("\nВведите первое число: ");
             a = scanner.nextInt();
@@ -25,18 +26,15 @@ public class CalculatorTest {
             scanner.nextLine();
 
             calculator = new Calculator(a, b, sign);
-            calculator.execute();
+            calculator.calculate();
             System.out.println(calculator.toString());
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                nextExecution = scanner.nextLine();
-            } while (!(nextExecution.equals("yes") || nextExecution.equals("no")));
-            
-            if (nextExecution.equals("no")) {
-                break;
-            }
-        }
+                nextIteration = scanner.nextLine();
+            } while (!(nextIteration.equals("yes") || nextIteration.equals("no")));
+
+        } while (nextIteration.equals("yes"));
 
         scanner.close();
     }
