@@ -16,17 +16,6 @@ public class Player {
         number = 1 + (int) (Math.random() * 100);
     }
 
-    public void calculate(String type) {
-        if (type.equals("less")) {
-            startRange = number;
-            number = (endRange - number) / 2 + number;
-        } else if (type.equals("more")) {
-            endRange = number;
-            number = (number - startRange) / 2;
-        }
-    }
-
-
     public String getName() {
         return this.name;
     }
@@ -54,13 +43,14 @@ public class Player {
     public int hashCode() {
         return id.hashCode();
     }
-    
 
-    @Override
-    public String toString() {
-        return "{" +
-            " name='" + getName() + "'" +
-            ", number='" + getNumber() + "'" +
-            "}";
+    public void calculate(String type) {
+        if (type.equals("less")) {
+            startRange = number;
+            number = (endRange - number) / 2 + number;
+        } else if (type.equals("more")) {
+            endRange = number;
+            number = (number - startRange) / 2;
+        }
     }
 }

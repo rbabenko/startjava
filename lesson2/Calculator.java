@@ -12,6 +12,22 @@ public class Calculator {
         this.sign = sign;
     }
 
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
+    public int getResult() {
+        return result;
+    }
+    
     public void calculate() {
         switch (sign) {
             case '+':
@@ -38,38 +54,5 @@ public class Calculator {
             result *= a;
         }
         return result;
-    }
-
-    public int getA() {
-        return a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public char getSign() {
-        return sign;
-    }
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    @Override
-    public String toString() {
-        return a + " " + sign + " " + b + " = " + result;
     }
 }

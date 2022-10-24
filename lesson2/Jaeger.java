@@ -21,23 +21,6 @@ public class Jaeger {
         this.armor = armor;
     }
 
-    public void move() {
-        System.out.println("Идти");
-    }
-
-    public void run() {
-        System.out.println("Бежать");
-    }
-
-    public void jump() {
-        System.out.println("Прыгать");
-    }
-
-    public void kill() {
-        System.out.println("Убивать");
-    }
-
-
     public String getName() {
         return this.name;
     }
@@ -94,17 +77,19 @@ public class Jaeger {
         this.armor = armor;
     }
     
+    public void move() {
+        System.out.println("Идти");
+    }
 
-    @Override
-    public String toString() {
-        return "{" +
-            " name='" + getName() + "'" +
-            ", mark='" + getMark() + "'" +
-            ", height='" + getHeight() + "'" +
-            ", weight='" + getWeight() + "'" +
-            ", speed='" + getSpeed() + "'" +
-            ", strength='" + getStrength() + "'" +
-            ", armor='" + getArmor() + "'" +
-            "}";
+    public void run() {
+        System.out.println("Бежать");
+    }
+
+    public void jump() {
+        System.out.println("Прыгать");
+    }
+
+    public void kill() {
+        System.out.println("Убивать");
     }
 }
