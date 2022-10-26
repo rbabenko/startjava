@@ -16,21 +16,20 @@ public class GuessNumber {
     }
 
     public void start() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            Player currentPlayer = player1;
-            while (true) {
-                System.out.println("----------------------------------------");
-                System.out.printf("Ход игрока: %s\n", currentPlayer.getName());
-                System.out.print("Введите число: ");
-                int number = scanner.nextInt();
-                currentPlayer.setNumber(number);
-                
-                if (compareNumbers(currentPlayer.getNumber())) {
-                    break;
-                }
-
-                currentPlayer = currentPlayer == player1 ? player2 : player1;
+        Scanner scanner = new Scanner(System.in);
+        Player currentPlayer = player1;
+        while (true) {
+            System.out.println("----------------------------------------");
+            System.out.printf("Ход игрока: %s\n", currentPlayer.getName());
+            System.out.print("Введите число: ");
+            int number = scanner.nextInt();
+            currentPlayer.setNumber(number);
+            
+            if (compareNumbers(currentPlayer.getNumber())) {
+                break;
             }
+
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
         }
     }
 
