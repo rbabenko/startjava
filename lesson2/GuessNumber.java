@@ -1,5 +1,7 @@
 package lesson2;
 
+import java.util.Scanner;
+
 public class GuessNumber {
     private int hiddenNumber;
 
@@ -13,35 +15,33 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public boolean execute() {
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
         Player currentPlayer = player1;
         while (true) {
+            System.out.println("----------------------------------------");
             System.out.printf("Ход игрока: %s\n", currentPlayer.getName());
-
-            String status = equalNumber(currentPlayer.getNumber());
+            System.out.print("Введите число: ");
+            int number = scanner.nextInt();
+            currentPlayer.setNumber(number);
             
-            if (status.equals("equal")) {
+            if (compareNumbers(currentPlayer.getNumber())) {
                 break;
             }
 
-            currentPlayer.calculate(status);
-
-            currentPlayer = currentPlayer.equals(player1) ? player2 : player1;
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
         }
-
-        return true;
     }
 
-    private String equalNumber(int assumedNumber) {
+    private boolean compareNumbers(int assumedNumber) {
         if (assumedNumber < hiddenNumber) {
             System.out.printf("Число %d меньше того, что загадал компьютер\n", assumedNumber);
-            return "less";
+            return false;
         } else if (assumedNumber > hiddenNumber) {
             System.out.printf("Число %d больше того, что загадал компьютер\n", assumedNumber);
-            return "more";
-        } else {
-            System.out.printf("Игрок победил! Загаданное число: %d\n", hiddenNumber);
-            return "equal";
+            return false;
         }
+        System.out.printf("Игрок победил! Загаданное число: %d\n", hiddenNumber);
+        return true;
     }
 }
