@@ -22,7 +22,7 @@ public class GuessNumberTest {
 
             do {
                 scanner = new Scanner(System.in);
-                System.out.print("Хотите продолжить игру? [yes/no]: ");
+                System.out.print("\nХотите продолжить игру? [yes/no]: ");
                 continuation = scanner.nextLine();
             } while (!continuation.equals("yes") && !continuation.equals("no"));
         } while (continuation.equals("yes"));
