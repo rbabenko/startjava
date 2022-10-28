@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String continuation;
 
         System.out.println("Игра \"Угадай число\"\n");
 
@@ -15,13 +14,12 @@ public class GuessNumberTest {
         System.out.print("Введите имя 2-го игрока: ");
         Player player2 = new Player(scanner.nextLine());
         
-        do {            
+        String continuation;
+        do {          
             GuessNumber game = new GuessNumber(player1, player2);
-
             game.start();
-
+            
             do {
-                scanner = new Scanner(System.in);
                 System.out.print("\nХотите продолжить игру? [yes/no]: ");
                 continuation = scanner.nextLine();
             } while (!continuation.equals("yes") && !continuation.equals("no"));
