@@ -38,7 +38,8 @@ public class GuessNumber {
         if (playerNumber == hiddenNumber) {
             System.out.printf("Игрок %s победил! Загаданное число: %d\n", player.getName(), hiddenNumber);
             return true;
-        } else if (playerNumber < hiddenNumber) {
+        }
+        if (playerNumber < hiddenNumber) {
             System.out.printf("Число %d меньше того, что загадал компьютер\n", playerNumber);
         } else if (playerNumber > hiddenNumber) {
             System.out.printf("Число %d больше того, что загадал компьютер\n", playerNumber);
