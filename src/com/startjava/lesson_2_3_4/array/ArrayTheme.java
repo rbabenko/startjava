@@ -10,62 +10,59 @@ public class ArrayTheme {
         printIntArray(intArr);
         System.out.printf("\nПеревернутый массив:");
         int length = intArr.length;
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i < length; i++, length--) {
             int temp = intArr[i];
-            intArr[i] = intArr[length - i - 1];
-            intArr[length - i - 1] = temp;
+            intArr[i] = intArr[length-1];
+            intArr[length-1] = temp;
         }
         printIntArray(intArr);
 
-        System.out.println("\n2. Вывод произведения элементов массива");
+        System.out.println("\n\n2. Вывод произведения элементов массива");
         length = 10;
         intArr = new int[length];
         for (int i = 0; i < length; i++) {
             intArr[i] = i;
         }
-        int mul = 1;
-        for (int num : intArr) {
-            if (!(num == 0 || num == 9)) {
-                mul *= num;
+        int mult = 1;
+        for (int i = 0; i < length; i++) {
+            if (!(intArr[i] == 0 || intArr[i] == 9)) {
+                mult *= intArr[i];
             }
         }
         for (int i = 1; i <= 8; i++) {
-            System.out.printf(i == 8 ? "%d = %d" : "%d * ", i, mul);
+            System.out.printf(i == 8 ? "%d = %d" : "%d * ", i, mult);
         }
-        for (int i = 0; i < length; i++) {
-            if (intArr[i] == 0 || intArr[i] == 9) {
-                System.out.printf("\nЧисло: %d, индекс: %d", intArr[i], i);
-            }
-        }
+        System.out.printf("\nЧисло: %d, индекс: %d", intArr[0], 0);
+        System.out.printf("\nЧисло: %d, индекс: %d", intArr[9], 9);
 
-        System.out.println("\n3. Удаление элементов массива");
+        System.out.println("\n\n3. Удаление элементов массива");
         length = 15;
         double[] doubleArray = new double[length];
         for (int i = 0; i < length; i++) {
             doubleArray[i] = Math.random();
         }
-        double midNum = doubleArray[length / 2];
+        double middleNumber = doubleArray[length / 2];
         int amountZeroNum = 0;
         for (int i = 0; i < length; i++) {
-            if (doubleArray[i] > midNum) {
+            if (doubleArray[i] > middleNumber) {
                 doubleArray[i] = 0;
                 amountZeroNum++;
             }
         }
         for (int i = 0; i < length; i++) {
-            System.out.printf(i == 7 ? "%6.3f\n" : "%6.3f", doubleArray[i]);
+            System.out.printf("%6.3f" + (i == 7 ? "\n" : ""), doubleArray[i]);
         }
         System.out.printf("\nКоличество обнуленных ячеек: %d", amountZeroNum);
 
-        System.out.println("\n4. Удаление элементов массива");
+        System.out.println("\n\n4. Вывод элементов массива лесенкой в обратном порядке");
         length = 26;
-        char[] latinArray = new char[length];
+        char[] latinAlphabet = new char[length];
         for (int i = 65; i <= 90; i++) {
-            latinArray[i - 65] = (char) i;
+            latinAlphabet[i - 65] = (char) i;
         }
         for (int i = length - 1; i >= 0; i--) {
             for (int j = length - 1; j >= i; j--) {
-                System.out.printf("%c", latinArray[j]);
+                System.out.printf("%c", latinAlphabet[j]);
             }
             System.out.println();
         }
@@ -82,7 +79,7 @@ public class ArrayTheme {
         }
         Arrays.sort(intArr);
         for (int i = 0; i < 30; i++) {
-            System.out.printf((i + 1) % 10 == 0 ? "%4d\n" : "%4d", intArr[i]);
+            System.out.printf("%4d" + ((i + 1) % 10 == 0 ? "\n" : ""), intArr[i]);
         }
     }
 
