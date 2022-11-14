@@ -10,10 +10,10 @@ public class ArrayTheme {
         printIntArray(intArr);
         System.out.printf("\nПеревернутый массив:");
         int length = intArr.length;
-        for (int i = 0; i < length; i++, length--) {
+        for (int i = 0; i < length; i++) {
             int temp = intArr[i];
-            intArr[i] = intArr[length-1];
-            intArr[length-1] = temp;
+            intArr[i] = intArr[--length];
+            intArr[length] = temp;
         }
         printIntArray(intArr);
 
@@ -24,12 +24,8 @@ public class ArrayTheme {
             intArr[i] = i;
         }
         int mult = 1;
-        for (int i = 0; i < length; i++) {
-            if (!(intArr[i] == 0 || intArr[i] == 9)) {
-                mult *= intArr[i];
-            }
-        }
         for (int i = 1; i <= 8; i++) {
+            mult *= intArr[i];
             System.out.printf(i == 8 ? "%d = %d" : "%d * ", i, mult);
         }
         System.out.printf("\nЧисло: %d, индекс: %d", intArr[0], 0);
@@ -41,18 +37,19 @@ public class ArrayTheme {
         for (int i = 0; i < length; i++) {
             doubleArray[i] = Math.random();
         }
+        System.out.println("Исходный массив");
+        printDoubleArray(doubleArray);
         double middleNumber = doubleArray[length / 2];
-        int amountZeroNum = 0;
+        int amountZero = 0;
         for (int i = 0; i < length; i++) {
             if (doubleArray[i] > middleNumber) {
                 doubleArray[i] = 0;
-                amountZeroNum++;
+                amountZero++;
             }
         }
-        for (int i = 0; i < length; i++) {
-            System.out.printf("%6.3f" + (i == 7 ? "\n" : ""), doubleArray[i]);
-        }
-        System.out.printf("\nКоличество обнуленных ячеек: %d", amountZeroNum);
+        System.out.println("\nИзмененный массив");
+        printDoubleArray(doubleArray);
+        System.out.printf("\nКоличество обнуленных ячеек: %d", amountZero);
 
         System.out.println("\n\n4. Вывод элементов массива лесенкой в обратном порядке");
         length = 26;
@@ -100,5 +97,11 @@ public class ArrayTheme {
 
     private static int generateNumber() {
         return (int) (60 + Math.random() * 40);
+    }
+
+    private static void printDoubleArray(double... numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.printf("%6.3f" + (i == 7 ? "\n" : ""), numbers[i]);
+        }
     }
 }
