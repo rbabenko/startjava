@@ -4,7 +4,6 @@ public class Calculator {
     private int a;
     private int b;
     private char sign;
-    private int result;
 
     public Calculator(int a, int b, char sign) {
         this.a = a;
@@ -12,47 +11,15 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public int getResult() {
-        return result;
-    }
-    
-    public void calculate() {
-        switch (sign) {
-            case '+':
-                result = a + b;
-                break;
-            case '-':
-                result = a - b;
-                break;
-            case '*':
-                result = a * b;
-                break;
-            case '/':
-                result = a / b;
-                break;
-            case '^':
-                result = pow(a, b);
-                break;
-        }
-    }
-
-    private int pow(int a, int b) {
-        int result = 1;
-        for (int i = 0; i < b; i++) {
-            result *= a;
-        }
-        return result;
+    public void calculate() throws Exception {
+        int result = switch (sign) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> Math.multiplyExact(a, b);
+            case '/' -> Math.floorDiv(a, b);
+            case '^' -> (int) Math.pow(a, b);
+            default -> throw new Exception();
+        };
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
