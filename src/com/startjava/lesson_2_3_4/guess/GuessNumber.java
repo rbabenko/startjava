@@ -14,10 +14,10 @@ public class GuessNumber {
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
-        clearPreviousAttemptsPlayer(players);
+        clearPreviousAttemptsPlayers();
         drawStraws();
         Player currentPlayer = players[0];
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             if (isFullAttemptsPlayers()) {
                 System.out.printf("Игра закончена. Все игроки использовали все доступные %d попыток(ки)\n",
@@ -51,7 +51,7 @@ public class GuessNumber {
         }
     }
 
-    private void clearPreviousAttemptsPlayer(Player... players) {
+    private void clearPreviousAttemptsPlayers() {
         for (Player player : players) {
             player.clearAttempts();
         }

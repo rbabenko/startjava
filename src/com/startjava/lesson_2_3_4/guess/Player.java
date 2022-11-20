@@ -41,7 +41,7 @@ public class Player {
     }
 
     public void clearAttempts() {
-        Arrays.fill(attempts,0, attemptNumber, 0);
+        Arrays.fill(attempts, 0, attemptNumber, 0);
         attemptNumber = 0;
     }
 }

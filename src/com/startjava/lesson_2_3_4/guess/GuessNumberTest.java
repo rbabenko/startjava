@@ -24,7 +24,6 @@ public class GuessNumberTest {
             for (Player player : players) {
                 System.out.printf("Попытки игрока %s: ", player.getName());
                 printNumberArray(player.getAttempts());
-                System.out.println();
             }
 
             System.out.print("\nХотите продолжить игру? [yes]: ");
@@ -42,5 +41,6 @@ public class GuessNumberTest {
         for (int number : array) {
             System.out.printf("%3d", number);
         }
+        System.out.println();
     }
 }
