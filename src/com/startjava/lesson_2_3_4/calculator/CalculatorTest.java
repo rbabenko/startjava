@@ -13,7 +13,8 @@ public class CalculatorTest {
             String expression = scanner.nextLine();
             String[] elements = expression.split("\s");
             if (elements.length != 3) {
-                System.out.println("Введено выражение, которое не соответствует требуемому формату");
+                System.out.println("Введено выражение, которое не соответствует требуемому формату. Просьба " +
+                        "ввести корректное выражение");
                 continue;
             }
             try {
@@ -25,14 +26,13 @@ public class CalculatorTest {
                     throw new NumberFormatException();
                 }
 
-                Calculator calculator = new Calculator(a, b, sign);
-                calculator.calculate();
+                System.out.println(a + " " + sign + " " + b + " = " + Calculator.calculate(a, b, sign));
             } catch (NumberFormatException e) {
-                System.out.println("Введены неверные операнды. Операнды должны являться целыми" +
-                        " положительными числами");
+                System.out.println("Операнды должны быть целыми положительными числами. Просьба ввести" +
+                        " корректные значения");
                 continue;
             } catch (Exception e) {
-                System.out.println("Введен неверный метематический оператор");
+                System.out.println("Введен неверный метематический оператор. Просьба ввести корректный оператор");
                 continue;
             }
 
