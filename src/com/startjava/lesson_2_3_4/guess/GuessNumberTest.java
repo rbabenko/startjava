@@ -3,12 +3,18 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    public final static int MAX_PLAYERS = 3;
+    public static final int MAX_ATTEMPTS = 10;
+    public static final int MAX_ROUND = 3;
+    public final static int UPPER_LIMIT = 100;
+    public final static int LOWER_LIMIT = 1;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        final int MAX_PLAYERS = 3;
 
         System.out.println("Игра \"Угадай число\"");
-        System.out.printf("У каждого игрока по %d попыток\n", Player.MAX_ATTEMPTS);
+        System.out.printf("У каждого игрока по %d попыток\n", MAX_ATTEMPTS);
+        System.out.println("----------------------------------------");
 
         Player[] players = new Player[MAX_PLAYERS];
 
@@ -20,11 +26,22 @@ public class GuessNumberTest {
 
         do {          
             GuessNumber game = new GuessNumber(players);
-            game.start();
-            for (Player player : players) {
-                System.out.printf("Попытки игрока %s: ", player.getName());
-                printNumberArray(player.getAttempts());
+            int countRound = 0;
+            while (countRound < MAX_ROUND) {
+                countRound++;
+                System.out.println("----------------------------------------");
+                System.out.printf("%d-й раунд\n", countRound);
+                game.start();
+                System.out.println("----------------------------------------");
+                System.out.printf("Итоги %d-го раунда\n", countRound);
+                for (Player player : players) {
+                    System.out.printf("Попытки игрока %s: ", player.getName());
+                    printNumberArray(player.getAttempts());
+                }
             }
+            System.out.println("----------------------------------------");
+            System.out.printf("Победитель после %d раундов: %s с количеством побед равным %d\n",
+                    MAX_ROUND, game.getWinPlayer().getName(), game.getWinPlayer().getWinRounds());
 
             System.out.print("\nХотите продолжить игру? [yes]: ");
             String continuation = scanner.nextLine();
