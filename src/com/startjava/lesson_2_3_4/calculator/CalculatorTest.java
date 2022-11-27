@@ -6,7 +6,7 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String continuation = "yes";
+        String continuation;
 
         do {
             System.out.print("\nВведите математическое выражение: ");
