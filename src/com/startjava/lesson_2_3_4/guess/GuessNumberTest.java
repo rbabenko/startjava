@@ -44,11 +44,9 @@ public class GuessNumberTest {
                     MAX_ROUND, game.getWinPlayer().getName(), game.getWinPlayer().getWinRounds());
 
             System.out.print("\nХотите продолжить игру? [yes]: ");
-            String continuation = scanner.nextLine();
-            if (continuation.equals("yes")) {
-                continue;
+            if (!scanner.nextLine().equals("yes")) {
+                break;
             }
-            break;
         } while (true);
 
         scanner.close();
