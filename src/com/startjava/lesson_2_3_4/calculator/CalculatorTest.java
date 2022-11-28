@@ -22,12 +22,21 @@ public class CalculatorTest {
                 System.out.println("Введен неверный метематический оператор. Просьба ввести корректный оператор");
             }
 
-            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-            if (!scanner.nextLine().equals("yes")) {
+            if (!continueCalculation()) {
                 break;
             }
         } while (true);
 
         scanner.close();
+    }
+
+    private static boolean continueCalculation() {
+        Scanner scanner = new Scanner(System.in);
+        String continuation;
+        do {
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            continuation = scanner.nextLine();
+        } while (!continuation.equals("yes") && !continuation.equals("no"));
+        return continuation.equals("yes");
     }
 }

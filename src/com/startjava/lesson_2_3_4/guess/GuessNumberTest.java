@@ -43,8 +43,7 @@ public class GuessNumberTest {
             System.out.printf("Победитель после %d раундов: %s с количеством побед равным %d\n",
                     MAX_ROUND, game.getWinPlayer().getName(), game.getWinPlayer().getWinRounds());
 
-            System.out.print("\nХотите продолжить игру? [yes]: ");
-            if (!scanner.nextLine().equals("yes")) {
+            if (!continueGame()) {
                 break;
             }
         } while (true);
@@ -57,5 +56,15 @@ public class GuessNumberTest {
             System.out.printf("%3d", number);
         }
         System.out.println();
+    }
+
+    private static boolean continueGame() {
+        Scanner scanner = new Scanner(System.in);
+        String continuation;
+        do {
+            System.out.print("\nХотите продолжить игру? [yes/no]: ");
+            continuation = scanner.nextLine();
+        } while (!continuation.equals("yes") && !continuation.equals("no"));
+        return continuation.equals("yes");
     }
 }
