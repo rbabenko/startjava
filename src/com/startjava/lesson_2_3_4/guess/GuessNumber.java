@@ -6,6 +6,10 @@ import java.util.Scanner;
 import static com.startjava.lesson_2_3_4.guess.GuessNumberTest.*;
 
 public class GuessNumber {
+    public static final int MAX_ATTEMPTS = 10;
+    public static final int MAX_ROUND = 3;
+    public final static int UPPER_LIMIT = 100;
+    public final static int LOWER_LIMIT = 1;
     private int hiddenNumber;
     private Player[] players;
     private Player winPlayer;
@@ -20,18 +24,35 @@ public class GuessNumber {
     }
 
     public void start() {
-        clear();
+        int countRound = 0;
+        while (countRound < MAX_ROUND) {
+            clear();
+            countRound++;
+            System.out.println("----------------------------------------");
+            System.out.printf("%d-й раунд\n", countRound);
+            playRound();
+            System.out.println("----------------------------------------");
+            System.out.printf("Итоги %d-го раунда\n", countRound);
+            for (Player player : players) {
+                System.out.printf("Попытки игрока %s: ", player.getName());
+                printNumberArray(player.getEnteredNumbers());
+            }
+        }
+    }
+
+    private void playRound() {
         Player currentPlayer = drawStrawsPlayers();
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             if (isFullAttemptsPlayers()) {
-                System.out.printf("Игра закончена. Все игроки использовали все доступные %d попыток(ки)\n",
+                System.out.printf("Раунд закончен. Все игроки использовали все доступные %d попыток(ки)\n",
                         MAX_ATTEMPTS);
                 break;
             }
             System.out.println("----------------------------------------");
-            System.out.printf("%d-й ход игрока: %s\n", currentPlayer.getNumberUsedAttempts() + 1, currentPlayer.getName());
-            if (currentPlayer.getNumberUsedAttempts() >= MAX_ATTEMPTS) {
+            System.out.printf("%d-й ход игрока: %s\n", currentPlayer.getAttempts() + 1, currentPlayer.getName());
+            if (currentPlayer.getAttempts() >= MAX_ATTEMPTS) {
                 System.out.printf("У %s закончились попытки\n", currentPlayer.getName());
                 currentPlayer = getNextPlayer(currentPlayer);
                 continue;
@@ -40,7 +61,7 @@ public class GuessNumber {
                 try {
                     System.out.print("Введите число: ");
                     int inputNumber = scanner.nextInt();
-                    currentPlayer.setAttempts(inputNumber);
+                    currentPlayer.addNumber(inputNumber);
                     break;
                 } catch (InputMismatchException e) {
                     System.out.println("Введенное значение должно быть целочисленного типа в интервале (0, 100]");
@@ -80,7 +101,7 @@ public class GuessNumber {
 
     private boolean isFullAttemptsPlayers() {
         for (Player player : players) {
-            if (player.getNumberUsedAttempts() < MAX_ATTEMPTS) {
+            if (player.getAttempts() < MAX_ATTEMPTS) {
                 return false;
             }
         }
@@ -103,9 +124,9 @@ public class GuessNumber {
     private boolean compareNumbers(Player player) {
         int playerNumber = player.getNumber();
         if (playerNumber == hiddenNumber) {
-            System.out.printf("Игрок %s угадал число %d с %d-ой попытки\n", player.getName(), hiddenNumber, player.getNumberUsedAttempts());
-            player.setWinRounds();
-            if (winPlayer == null || player.getWinRounds() > winPlayer.getWinRounds()) {
+            System.out.printf("Игрок %s угадал число %d с %d-ой попытки\n", player.getName(), hiddenNumber, player.getAttempts());
+            player.setNumberWins();
+            if (winPlayer == null || player.getNumberWins() > winPlayer.getNumberWins()) {
                 winPlayer = player;
             }
             return true;
@@ -113,5 +134,12 @@ public class GuessNumber {
         System.out.printf("Число %d %s того, что загадал компьютер\n", playerNumber,
                 playerNumber < hiddenNumber ? "меньше" : "больше");
         return false;
+    }
+
+    private static void printNumberArray(int... array) {
+        for (int number : array) {
+            System.out.printf("%3d", number);
+        }
+        System.out.println();
     }
 }
