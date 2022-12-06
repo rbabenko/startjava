@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 
 public class Player {
     private String name;
-    private int number;
     private int[] enteredNumbers;
     private int attempts;
     private int numberWins;
@@ -20,7 +19,7 @@ public class Player {
     }
 
     public int getNumber() {
-        return number;
+        return enteredNumbers[attempts - 1];
     }
 
     public int getAttempts() {
@@ -31,10 +30,9 @@ public class Player {
         return Arrays.copyOf(enteredNumbers, attempts);
     }
 
-    public void addNumber(int number) throws InputMismatchException {
+    public void addNumber(int number) {
         if (number > 0 && number <= 100) {
             enteredNumbers[attempts++] = number;
-            this.number = number;
         } else {
             throw new InputMismatchException();
         }
@@ -44,7 +42,7 @@ public class Player {
         return numberWins;
     }
 
-    public void setNumberWins() {
+    public void incNumberWins() {
         numberWins++;
     }
 
