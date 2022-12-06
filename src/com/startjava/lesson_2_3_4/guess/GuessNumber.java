@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class GuessNumber {
     public static final int MAX_ATTEMPTS = 10;
     public static final int MAX_ROUNDS = 3;
-    public final static int START_RANGE = 100;
-    public final static int END_RANGE = 1;
+    public final static int START_RANGE = 1;
+    public final static int END_RANGE = 100;
     private int hiddenNumber;
     private Player[] players;
 
@@ -17,7 +17,6 @@ public class GuessNumber {
 
     public void start() {
         for (int i = 1; i <= GuessNumber.MAX_ROUNDS; i++) {
-            init();
             System.out.println("----------------------------------------");
             System.out.printf("%d-й раунд\n", i);
             playRound();
@@ -31,6 +30,8 @@ public class GuessNumber {
     private void playRound() {
         Player currentPlayer = castLots();
         Scanner scanner = new Scanner(System.in);
+
+        init();
 
         while (true) {
             if (hasAttempts()) {
@@ -128,7 +129,7 @@ public class GuessNumber {
 
     private void printPlayerAttempts(int[] array) {
         for (int number : array) {
-            System.out.printf("%3d", number);
+            System.out.printf("%4d", number);
         }
         System.out.println();
     }
