@@ -98,11 +98,9 @@ public class GuessNumber {
     private Player changePlayer(Player previousPlayer) {
         Player player = players[0];
         for (int i = 0; i < players.length; i++) {
-            if (players[i] == previousPlayer) {
-                if ((i + 1) < players.length) {
-                    player = players[i + 1];
-                    break;
-                }
+            if (players[i] == previousPlayer && (i + 1) < players.length) {
+                player = players[i + 1];
+                break;
             }
         }
         return player;
