@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class GuessNumber {
     public static final int MAX_ATTEMPTS = 10;
-    public static final int MAX_ROUNDS = 1;
+    public static final int MAX_ROUNDS = 3;
     public final static int START_RANGE = 100;
     public final static int END_RANGE = 1;
     private int hiddenNumber;
