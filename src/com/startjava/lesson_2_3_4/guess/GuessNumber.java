@@ -96,15 +96,15 @@ public class GuessNumber {
         return true;
     }
 
-    private Player changePlayer(Player previousPlayer) {
-        Player player = players[0];
+    private Player changePlayer(Player currentPlayer) {
+        Player nextPlayer = players[0];
         for (int i = 0; i < players.length; i++) {
-            if (players[i] == previousPlayer && (i + 1) < players.length) {
-                player = players[i + 1];
+            if (players[i] == currentPlayer && (i + 1) < players.length) {
+                nextPlayer = players[i + 1];
                 break;
             }
         }
-        return player;
+        return nextPlayer;
     }
 
     private boolean compareNumbers(Player player) {
