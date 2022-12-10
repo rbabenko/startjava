@@ -21,13 +21,18 @@ public class CalculatorTest {
             } catch (IllegalStateException e) {
                 System.out.println("Введен неверный метематический оператор. Просьба ввести корректный оператор");
             }
-
-            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-            if (!scanner.nextLine().equals("yes")) {
-                break;
-            }
-        } while (true);
+        } while (isNext());
 
         scanner.close();
+    }
+
+    private static boolean isNext() {
+        Scanner scanner = new Scanner(System.in);
+        String option;
+        do {
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            option = scanner.nextLine();
+        } while (!option.equals("yes") && !option.equals("no"));
+        return option.equals("yes");
     }
 }
