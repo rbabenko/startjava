@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS Jaegers;
+DROP DATABASE IF EXISTS jaegers;
 
-CREATE DATABASE Jaegers;
-\c Jaegers;
+CREATE DATABASE jaegers;
+\c jaegers;
 
-CREATE TABLE Jaegers
+CREATE TABLE jaegers
 (
     id        SERIAL PRIMARY KEY,
     modelName TEXT,

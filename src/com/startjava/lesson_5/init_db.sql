@@ -1,4 +1,6 @@
-INSERT INTO Jaegers(modelName, mark, height, weight, status, origin, launch, kaijuKill)
+\c jaegers;
+
+INSERT INTO jaegers(modelName, mark, height, weight, status, origin, launch, kaijuKill)
 VALUES ('Gipsy Danger', 'Mark-3', 79.25, 1.98, 'Destroyed', 'United States of America',
         TO_DATE('10-07-2017', 'DD-MM-YYYY'), 9),
        ('Cherno Alpha', 'Mark-1', 85.34, 2.412, 'Destroyed', 'Russia', TO_DATE('2015', 'YYYY'), 6),

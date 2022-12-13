@@ -1,19 +1,21 @@
-SELECT * FROM Jaegers;
+\c jaegers;
 
-SELECT * FROM Jaegers WHERE status != 'Destroyed';
+SELECT * FROM jaegers;
 
-SELECT * FROM Jaegers WHERE mark IN ('Mark-1', 'Mark-4');
+SELECT * FROM jaegers WHERE status != 'Destroyed';
 
-SELECT * FROM Jaegers WHERE mark NOT IN ('Mark-1', 'Mark-4');
+SELECT * FROM jaegers WHERE mark IN ('Mark-1', 'Mark-4');
 
-SELECT * FROM Jaegers ORDER BY mark DESC;
+SELECT * FROM jaegers WHERE mark NOT IN ('Mark-1', 'Mark-4');
 
-SELECT * FROM Jaegers WHERE launch = (SELECT MIN(launch) FROM Jaegers);
+SELECT * FROM jaegers ORDER BY mark DESC;
 
-SELECT * FROM Jaegers WHERE kaijuKill = (SELECT MAX(kaijuKill) FROM Jaegers);
+SELECT * FROM jaegers WHERE launch = (SELECT MIN(launch) FROM jaegers);
 
-SELECT AVG(weight) FROM Jaegers;
+SELECT * FROM jaegers WHERE kaijuKill = (SELECT MAX(kaijuKill) FROM jaegers);
 
-UPDATE Jaegers SET kaijuKill = kaijuKill + 1 WHERE status != 'Destroyed';
+SELECT AVG(weight) FROM jaegers;
 
-DELETE FROM Jaegers WHERE status = 'Destroyed';
+UPDATE jaegers SET kaijuKill = kaijuKill + 1 WHERE status != 'Destroyed';
+
+DELETE FROM jaegers WHERE status = 'Destroyed';
